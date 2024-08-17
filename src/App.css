@@ -1,20 +1,27 @@
-*{
+/* Global Reset and Variables */
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
 :root {
   min-height: 100vh;
   display: flex;
-  --primary-color: #4A90E2;
-  --secondary-color: #50E3C2;
-  --background-color: #FFFFFF;
-  --text-color: #333333;
-  --border-color: #DDDDDD;
-  --accent-color: #F5A623;
-  
+
+  /* Light Theme Colors */
+  --primary-color: #F6A5A5; /* Soft Coral */
+  --secondary-color: #F0E5DE; /* Warm Beige */
+  --accent-color: #E7B7A0; /* Peach */
+  --background-color: #FAF9F6; /* Off White */
+  --text-color: #4A4A4A; /* Dark Gray */
+  --border-color: #E0E0E0; /* Light Gray */
+
+  /* Fonts */
   --font-family-primary: 'Roboto', sans-serif;
   --font-family-secondary: 'Open Sans', sans-serif;
+
+  /* Font Sizes */
   --font-size-h1: 2.5rem;
   --font-size-h2: 2rem;
   --font-size-h3: 1.75rem;
@@ -24,38 +31,61 @@
   --font-size-body: 1rem;
   --font-size-small: 0.875rem;
   --font-size-caption: 0.75rem;
-  }
-  
-  body {
+}
+
+body {
   background-color: var(--background-color);
   color: var(--text-color);
   font-family: var(--font-family-primary);
-  }
-  
-  h1 {
-  font-size: var(--font-size-h1);
-  }
-  
-  h2 {
-  font-size: var(--font-size-h2);
-  }
+}
 
-  body.dark-mode {
-    --primary-color: #4A90E2;
-    --secondary-color: #50E3C2;
-    --background-color: #1C1C1C;
-    --text-color: #FFFFFF;
-    --border-color: #333333;
-    --accent-color: #F5A623;
-    
-    background-color: var(--background-color);
-    color: var(--text-color);
-    }
-    
-    body.dark-mode h1 {
-    font-size: var(--font-size-h1);
-    }
-    
-    body.dark-mode h2 {
-    font-size: var(--font-size-h2);
-    }
+h1 {
+  font-size: var(--font-size-h1);
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+}
+
+.button {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+}
+
+.button:hover {
+  background: linear-gradient(45deg, darken(var(--primary-color), 10%), darken(var(--secondary-color), 10%));
+}
+
+
+/* Dark Mode Colors */
+body.dark-mode {
+  --primary-color: #E0747C; /* Muted Coral */
+  --secondary-color: #F0E5DE; /* Warm Beige */
+  --accent-color: #E7B7A0; /* Peach */
+  --background-color: #3A3B3C; /* Charcoal Gray */
+  --text-color: #E5E5E5; /* Off White */
+  --border-color: #4A4A4A; /* Dark Charcoal */
+
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+body.dark-mode h1 {
+  font-size: var(--font-size-h1);
+  color: var(--primary-color);
+}
+
+body.dark-mode h2 {
+  font-size: var(--font-size-h2);
+  color: var(--primary-color);
+}
+.button {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+  background: linear-gradient(45deg, var(--background-color), var(--primary-color));
+}
+
+.button:hover {
+  background: linear-gradient(45deg, lighten(var(--background-color), 10%), lighten(var(--primary-color), 10%));
+}
