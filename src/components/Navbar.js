@@ -5,20 +5,25 @@ import { CgProfile } from "react-icons/cg";
 import { MdFavoriteBorder } from "react-icons/md";
 import { TiThList } from "react-icons/ti";
 import { BiSearchAlt } from "react-icons/bi";
-import { RiGhost2Fill } from 'react-icons/ri';
 import { Switch } from '@mui/material';
 
 
-const Navbar = () => {
+const Navbar = ({setQuery}) => {
   const [theme, setTheme] = useState(false);
   const [search, setSearch] = useState(false);
+  const [inputValue, setInputValue] = useState('');
   const handleTheme = () =>{
     setTheme(!theme);
   };
 
   const handleSearch = () =>{
     setSearch(!search);
+    
   }; 
+  const handleInputChange = (event) => {
+    setQuery(event.target.value);
+  };
+
   useEffect(() =>{
     if (theme) {
       document.body.classList.add('dark-mode');
@@ -29,13 +34,18 @@ const Navbar = () => {
   return (
     <div className='navbar-container'>
       <div className='left-corner'>
-        <img src={logo} alt='logo' className='logo' />
+        <div className='logo-container'>
+          <img src={logo} alt='logo' className='logo' />
+        </div>
         <span className='category'>Categories</span>
       </div>
 
       <div className='right-corner'>
-        <div className={`search-box ${search ? '' : 'visible'}`}>
-          <input name='entity' className='search-input' type='text' placeholder='Search...'/>
+        <div className={`search-box ${search ? 'visible' : ''}`}>
+          <input name='entity' 
+                 className='search-input' 
+                 type='text' placeholder='Search...'
+                 onChange={handleInputChange}/>
           <BiSearchAlt size={35} className='search-icon' onClick={handleSearch}/>
         </div>
         <BiSearchAlt size={30} onClick={handleSearch}/>

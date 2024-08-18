@@ -19,9 +19,18 @@
   flex-direction: row;
   align-items: center;
 }
+.logo-container {
+  display: inline-block;
+  perspective: 1000px; /* Gives the 3D effect */
+}
 .logo{
   width: 80px;
   height: 80px;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+}
+.logo-container:hover .logo {
+  transform: rotateY(360deg); /* Rotates the logo 360 degrees on the Y-axis */
 }
 .right-corner{
   padding-right: 20px;
@@ -49,8 +58,7 @@
   right: 287px;
   align-items: center;
   padding: 5px;
-  animation-direction:inherit;
-  transition: width 0.4s ease, opacity 0.35s ease ;
+  transition: width 0.4s ease-in, opacity 0.35s ease ;
   overflow: hidden; /* Prevents content from overflowing during the transition */
   opacity: 0; /* Start with 0 opacity */
 }
@@ -80,3 +88,11 @@
 
 }
 
+@keyframes coin-flip {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
